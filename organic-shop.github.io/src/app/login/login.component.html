@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input  #email="ngModel" ngModel name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input #password="ngModel" ngModel name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          Password is required.
+        </div>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+      </div>
+      <button type="submit" (click)="login()" class="btn btn-primary">Sign Up</button>
+      <button type="submit" class="btn btn-primary float-right">Log In</button>
+    </form>
+  </div>
+</div>
+
+
+  

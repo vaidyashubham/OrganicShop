@@ -1,0 +1,14 @@
+
+.card{
+  margin-bottom: 20px;
+}
+.card-footer{
+  padding: 0;
+}
+.sticky-top{
+  top: 80px;
+}
+.cart{
+  text-align: center !important;
+  padding-top: 5px;
+}

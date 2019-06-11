@@ -1,0 +1,65 @@
+<h1>Shopping Cart</h1>
+<p>You have {{ shoppingCartItem.length }} items in your shopping cart.
+  <button 
+    class="btn btn-light btn-sm"
+    *ngIf="shoppingCartItem.length">
+    Clear Shopping Cart
+  </button>
+</p>
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+      <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-center">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of shoppingCartItem">
+              <td>
+                <div [style.backgroundImage]="'url(' + product.imageURL + ')'" class="thumbnail"></div>
+              </td>
+              <td>
+                {{ product.title }}
+              </td>
+              <td class="text-center">
+                <div class="row no-gutters">
+                  <div class="col-2">
+                    <button class="btn btn-secondary btn-block">-</button>
+                  </div>
+                  <div class="col text-center cart">
+                    {{ 1 }} in cart
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-secondary btn-block">+</button>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center">
+                {{ product.price * 1 | currency:'USD':true }}
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th class="text-center">
+                Total : {{ totalPrice() | currency:'USD':true }}
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+  </div>
+</div>
+<a 
+  *ngIf="shoppingCartItem.length"
+  routerLink="/check-out"
+  class="btn btn-primary btn-sm">Check Out</a>
+
